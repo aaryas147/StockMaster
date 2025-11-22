@@ -6,3 +6,108 @@ datasource db {
   provider = "postgresql"
   url      = env("DATABASE_URL")
 }
+
+enum Role {
+  MANAGER
+  STAFF
+}
+
+enum TaskStatus {
+  PENDING
+  IN_PROGRESS
+  COMPLETED
+}
+
+enum TransactionType {
+  BUY
+  SELL
+}
+
+model User {
+  id        Int      @id @default(autoincrement())
+  name      String
+  email     String   @unique
+  password  String
+  role      Role     @default(STAFF)
+  createdAt DateTime @default(now())
+
+  tasks        Task[]
+  portfolios   Portfolio[]
+  transactions Transaction[]
+  holdings     Holding[]
+  alerts       Alert[]
+}
+
+model Task {
+  id          Int        @id @default(autoincrement())
+  title       String
+  description String?
+  status      TaskStatus @default(PENDING)
+  deadline    DateTime?
+  createdAt   DateTime   @default(now())
+
+  assignedTo   User? @relation(fields: [assignedToId], references: [id])
+  assignedToId Int?
+}
+
+model Stock {
+  id           Int     @id @default(autoincrement())
+  symbol       String  @unique
+  name         String
+  industry     String?
+  currentPrice Float
+
+  holdings     Holding[]
+  transactions Transaction[]
+  alerts       Alert[]
+}
+
+model Portfolio {
+  id        Int      @id @default(autoincrement())
+  userId    Int
+  createdAt DateTime @default(now())
+
+  user     User      @relation(fields: [userId], references: [id])
+  holdings Holding[]
+}
+
+model Holding {
+  id            Int      @id @default(autoincrement())
+  userId        Int
+  stockId       Int
+  portfolioId   Int
+  quantity      Int
+  avgBuyPrice   Float
+  totalInvested Float
+  createdAt     DateTime @default(now())
+
+  user      User      @relation(fields: [userId], references: [id])
+  stock     Stock     @relation(fields: [stockId], references: [id])
+  portfolio Portfolio @relation(fields: [portfolioId], references: [id])
+}
+
+model Transaction {
+  id          Int             @id @default(autoincrement())
+  userId      Int
+  stockId     Int
+  type        TransactionType
+  quantity    Int
+  price       Float
+  totalAmount Float
+  createdAt   DateTime        @default(now())
+
+  user  User  @relation(fields: [userId], references: [id])
+  stock Stock @relation(fields: [stockId], references: [id])
+}
+
+model Alert {
+  id          Int      @id @default(autoincrement())
+  userId      Int
+  stockId     Int
+  targetPrice Float
+  triggered   Boolean  @default(false)
+  createdAt   DateTime @default(now())
+
+  user  User  @relation(fields: [userId], references: [id])
+  stock Stock @relation(fields: [stockId], references: [id])
+}
