@@ -1,0 +1,228 @@
+@custom-variant dark (&:is(.dark *));
+
+:root {
+  --font-size: 16px;
+  
+  /* StockMaster Light Theme Colors */
+  --background: #F8FAFB;
+  --foreground: #001D39;
+  --card: #FFFFFF;
+  --card-foreground: #001D39;
+  --popover: #FFFFFF;
+  --popover-foreground: #001D39;
+  --primary: #001D39;
+  --primary-foreground: #BDD8E9;
+  --secondary: #6EA2B3;
+  --secondary-foreground: #001D39;
+  --muted: #E5EFF4;
+  --muted-foreground: #49769F;
+  --accent: #7BBDE8;
+  --accent-foreground: #001D39;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: #D0DDE5;
+  --input: transparent;
+  --input-background: #FFFFFF;
+  --switch-background: #BDD8E9;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  --ring: #7BBDE8;
+  
+  /* StockMaster Custom Colors - Light */
+  --sm-primary-dark: #001D39;
+  --sm-nav: #E8F1F7;
+  --sm-secondary: #49769F;
+  --sm-card: #F0F7FA;
+  --sm-subtle: #6EA2B3;
+  --sm-accent: #7BBDE8;
+  --sm-text-light: #BDD8E9;
+  
+  /* Chart colors */
+  --chart-1: #7BBDE8;
+  --chart-2: #4E8EA2;
+  --chart-3: #49769F;
+  --chart-4: #6EA2B3;
+  --chart-5: #BDD8E9;
+  
+  --radius: 0.75rem;
+  
+  /* Sidebar Light */
+  --sidebar: #FFFFFF;
+  --sidebar-foreground: #001D39;
+  --sidebar-primary: #7BBDE8;
+  --sidebar-primary-foreground: #001D39;
+  --sidebar-accent: #F0F7FA;
+  --sidebar-accent-foreground: #001D39;
+  --sidebar-border: #D0DDE5;
+  --sidebar-ring: #7BBDE8;
+}
+
+.dark {
+  /* StockMaster Dark Theme Colors */
+  --background: #001D39;
+  --foreground: #BDD8E9;
+  --card: #0A4174;
+  --card-foreground: #BDD8E9;
+  --popover: #0A4174;
+  --popover-foreground: #BDD8E9;
+  --primary: #7BBDE8;
+  --primary-foreground: #001D39;
+  --secondary: #49769F;
+  --secondary-foreground: #BDD8E9;
+  --muted: #0A4174;
+  --muted-foreground: #6EA2B3;
+  --accent: #7BBDE8;
+  --accent-foreground: #001D39;
+  --destructive: #d4183d;
+  --destructive-foreground: #ffffff;
+  --border: #49769F;
+  --input: #0A4174;
+  --ring: #7BBDE8;
+  --font-weight-medium: 500;
+  --font-weight-normal: 400;
+  
+  /* StockMaster Custom Colors - Dark */
+  --sm-primary-dark: #001D39;
+  --sm-nav: #0A4174;
+  --sm-secondary: #49769F;
+  --sm-card: #4E8EA2;
+  --sm-subtle: #6EA2B3;
+  --sm-accent: #7BBDE8;
+  --sm-text-light: #BDD8E9;
+  
+  /* Chart colors */
+  --chart-1: #7BBDE8;
+  --chart-2: #4E8EA2;
+  --chart-3: #49769F;
+  --chart-4: #6EA2B3;
+  --chart-5: #BDD8E9;
+  
+  /* Sidebar Dark */
+  --sidebar: #001D39;
+  --sidebar-foreground: #BDD8E9;
+  --sidebar-primary: #7BBDE8;
+  --sidebar-primary-foreground: #001D39;
+  --sidebar-accent: #0A4174;
+  --sidebar-accent-foreground: #BDD8E9;
+  --sidebar-border: #0A4174;
+  --sidebar-ring: #7BBDE8;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-input-background: var(--input-background);
+  --color-switch-background: var(--switch-background);
+  --color-ring: var(--ring);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+  
+  /* StockMaster custom colors */
+  --color-sm-primary-dark: var(--sm-primary-dark);
+  --color-sm-nav: var(--sm-nav);
+  --color-sm-secondary: var(--sm-secondary);
+  --color-sm-card: var(--sm-card);
+  --color-sm-subtle: var(--sm-subtle);
+  --color-sm-accent: var(--sm-accent);
+  --color-sm-text-light: var(--sm-text-light);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/**
+ * Base typography. This is not applied to elements which have an ancestor with a Tailwind text class.
+ */
+@layer base {
+  :where(:not(:has([class*=' text-']), :not(:has([class^='text-'])))) {
+    h1 {
+      font-size: var(--text-2xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h2 {
+      font-size: var(--text-xl);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h3 {
+      font-size: var(--text-lg);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    h4 {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    p {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+
+    label {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    button {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-medium);
+      line-height: 1.5;
+    }
+
+    input {
+      font-size: var(--text-base);
+      font-weight: var(--font-weight-normal);
+      line-height: 1.5;
+    }
+  }
+}
+
+html {
+  font-size: var(--font-size);
+}
